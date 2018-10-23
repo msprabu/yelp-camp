@@ -1,0 +1,7 @@
+<% include ../partials/header %>
+<h1>This is the list page where all the camps are listed</h1>
+<% camps.forEach(function(camp){  %>
+<h3><%= camp.campName %></h3>
+<img src="<%=camp.imageUrl %>">	
+<a href="/camps/<%= camp._id %>">View this camp</a>
+<% }); %>

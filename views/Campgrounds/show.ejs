@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<h1>Details page of camps showing all the details</h1>
+<h3><%= thisCamp.campName%></h3>
+<img src="<%= thisCamp.imageUrl %>">
+<strong>Created by: </strong><span><%=thisCamp.creator.username%></span>
+<%if (currentUser && thisCamp.creator.id.equals(currentUser._id)){ %>
+<a href="/camps/<%=thisCamp._id%>/edit">Edit this camp</a>
+<form action="/camps/<%=thisCamp._id%>?_method=DELETE" method="POST">
+	<button>Delete</button>
+</form>
+<%} %>
+<a href="/camps/<%=thisCamp._id%>/comment/new">Add a comment</a>
+<h4>Comments</h4>
+
+<% thisCamp.comments.forEach(function(comment){  %>
+<p><strong><%= comment.author.username+": " %></strong>
+<span><%=comment.Content%></span></p>
+<%if (currentUser && comment.author.id.equals(currentUser._id)){ %>
+<span><a href="/camps/<%=thisCamp._id%>/comment/<%=comment._id%>/edit">Edit comment</a></span>
+<form action="/camps/<%=thisCamp._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
+	<button>Delete Comment</button>
+</form>
+<%} %>
+<% }); %>
