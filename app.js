@@ -20,7 +20,7 @@ mongoose.connect("mongodb://localhost:27017/YelpCamp", { useNewUrlParser: true }
 app.use(require("express-session")({secret: "This is the yelpcamp page",
  							resave: false,
  							saveUninitialized: false}));
-
+//Passport Config
 app.use(passport.initialize());
 app.use(passport.session());
 
