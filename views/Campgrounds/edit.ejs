@@ -1,7 +1,11 @@
 <% include ../partials/header %>
+<div class="container text-center">
 <h1>Edit <%=thisCamp.campName%></h1>
+</div>
+<div class="container text-center">
 <form action="/camps/<%=thisCamp._id%>?_method=PUT" method="POST">
 	<input type="text" name="campObj[campName]" placeholder="Camp Name" value="<%=thisCamp.campName%>">
 	<input type="text" name="campObj[imageUrl]" placeholder="Image URL" value="<%=thisCamp.imageUrl%>">
 	<button>Submit</button>
 </form>
+</div>
