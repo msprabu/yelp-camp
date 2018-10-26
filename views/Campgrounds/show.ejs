@@ -1,7 +1,10 @@
 <% include ../partials/header %>
+<div class="container">
 <h1>Details page of camps showing all the details</h1>
+</div>
+<div class="container">
 <h3><%= thisCamp.campName%></h3>
-<img src="<%= thisCamp.imageUrl %>">
+<img src="<%= thisCamp.imageUrl %>" class="img-thumbnail">
 <strong>Created by: </strong><span><%=thisCamp.creator.username%></span>
 <%if (currentUser && thisCamp.creator.id.equals(currentUser._id)){ %>
 <a href="/camps/<%=thisCamp._id%>/edit">Edit this camp</a>
@@ -10,8 +13,9 @@
 </form>
 <%} %>
 <a href="/camps/<%=thisCamp._id%>/comment/new">Add a comment</a>
+</div>
+<div class="container">
 <h4>Comments</h4>
-
 <% thisCamp.comments.forEach(function(comment){  %>
 <p><strong><%= comment.author.username+": " %></strong>
 <span><%=comment.Content%></span></p>
@@ -22,3 +26,4 @@
 </form>
 <%} %>
 <% }); %>
+</div>
